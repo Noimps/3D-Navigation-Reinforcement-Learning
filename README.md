@@ -1,5 +1,5 @@
 # 3D-Navigation-Reinforcement-Learning
-This project provides scientists with platform to create a 3D environment from integer blocks in a text file, and then allows them to train RL models within this environment.
+This project provides scientists with simple platform to create a 3D environment from integer blocks in a text file, and then allows them to train RL models within this environment.
 This code is open for everyone to develop with. If used for any scientific research, credit would nice, my paper with training parameter guidelines will be uploaded shortly.
 
 
