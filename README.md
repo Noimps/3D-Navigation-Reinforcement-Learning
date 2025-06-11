@@ -6,8 +6,10 @@ This code is open for everyone to develop with. If used for any scientific resea
 BUILDING A ROOM:
 
 legend:
-- 0 = free empty space
-- 2 = Obscured space
+
+0 = free empty space
+
+2 = Obscured space
 
 - Build a room by creating 2D grids of 0's and 2's and state their layer above each grid. 
 - The environment will layer the layers in the load_room function.
