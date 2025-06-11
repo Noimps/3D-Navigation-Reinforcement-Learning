@@ -1,5 +1,6 @@
 # 3D-Navigation-Reinforcement-Learning
 This project provides an scientist with a way to create a 3D environment from integer blocks in a text file, and then allows them to train RL models within this environment.
+This code is open for everyone to develop with. If used for any scientific research, credit would nice, my paper with training parameter guidelines will be uploaded shortly.
 
 
 BUILDING A ROOM:
@@ -19,3 +20,6 @@ Run python -m train.lstm or train.train to start training.
 
 - Hyperparams can be altered in the train files.
 - Reward values and environment parameters can be altered in the environment file(s).
+
+
+
