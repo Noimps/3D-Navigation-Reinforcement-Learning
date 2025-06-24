@@ -21,7 +21,7 @@ from sb3_contrib import RecurrentPPO
 from stable_baselines3.common.env_checker import check_env
 from stable_baselines3.common.vec_env import SubprocVecEnv
 # Corrected import path based on your updated Venv.py location
-from envs.Kenv import GridAgent
+from envs.CubicEnv import GridAgent
 from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.monitor import Monitor
 from pathlib import Path # Still useful for path manipulation if needed, but not for creating dummy files

@@ -15,7 +15,7 @@ import gymnasium as gym
 from sb3_contrib import RecurrentPPO
 from stable_baselines3.common.env_checker import check_env
 from stable_baselines3.common.vec_env import SubprocVecEnv
-from envs.Kenv import GridAgent  # Assuming envs.Kenv is the correct path
+from envs.CubicEnv import GridAgent  # Assuming envs.Kenv is the correct path
 from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.monitor import Monitor
 from pathlib import Path
