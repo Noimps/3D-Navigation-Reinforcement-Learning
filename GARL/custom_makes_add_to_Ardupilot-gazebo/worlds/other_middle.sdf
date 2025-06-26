@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="other_middle">
+    <physics name="1ms" type="ignore">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>-1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    <plugin filename="gz-sim-navsat-system"
+      name="gz::sim::systems::NavSat">
+    </plugin>
+    <plugin filename="gz-sim-contact-system"
+      name="gz::sim::systems::Contact">
+    </plugin>
+
+    <scene>
+      <ambient>1.0 1.0 1.0</ambient>
+      <background>0.8 0.8 0.8</background>
+      <sky></sky>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.8 0.8 0.8 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="room">
+      <static>true</static>
+      <link name="floor">
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>floor
+          </namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0 0 0</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 10 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="ceiling">
+        <pose>0 0 5 0 0 0</pose>
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>ceiling</namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 10 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 10 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="wall_xp">
+        <pose>5 0 2.5 0 0 0</pose>
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>wall_xp</namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 10 5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.8 0.6 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 10 5</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="wall_xn">
+        <pose>-5 0 2.5 0 0 0</pose>
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>wall_xn</namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 10 5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.6 0.8 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 10 5</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="wall_yp">
+        <pose>0 5 2.5 0 0 0</pose>
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>wall_yp</namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.1 5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.6 0.6 0.8 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.1 5</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="wall_yn">
+        <pose>0 -5 2.5 0 0 0</pose>
+        <sensor name='sensor_contact' type='contact'>
+          <contact>
+            <collision>collision</collision>
+          </contact>
+        </sensor>
+        <plugin filename="gz-sim-touchplugin-system"
+          name="gz::sim::systems::TouchPlugin">
+          <target>iris_with_lidar</target>
+          <namespace>wall_yn</namespace>
+          <time>0.001</time>
+          <enabled>true</enabled>
+        </plugin>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.1 5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.8 0.8 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.1 5</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="aws_robomaker_warehouse_GroundB_01_001">
+      <include>
+        <uri>
+          https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/aws_robomaker_warehouse_GroundB_01</uri>
+      </include>
+      <pose>0.0 0.0 -0.090092 0 0 0</pose>
+    </model>
+
+    <include>
+      <uri>model://iris_with_lidar</uri>
+      <pose degrees="true">0 0 0.195 0 0 90</pose>
+    </include>
+
+    <include>
+      <uri>
+        https://fuel.gazebosim.org/1.0/Hcl/models/April Tag 0
+      </uri>
+      <pose>1 -1 0.01 0 0 0</pose>            <!-- x y z roll pitch yaw (radians) -->
+
+    </include>
+  </world>
+</sdf>
